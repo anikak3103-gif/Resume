@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif-display: "Cormorant Garamond", Georgia, serif;
+    --font-serif-body: "Lora", "Source Serif 4", Georgia, serif;
+    --font-sans-ui: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-serif-display {
+  font-family: var(--font-serif-display);
+}
+
+.font-serif-body {
+  font-family: var(--font-serif-body);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans-ui);
+}
+
+/* Custom smooth text selection */
+::selection {
+  background-color: rgba(30, 58, 138, 0.15);
+  color: #0F2544;
+}
+
+/* Print Stylesheet for flawless A4/Letter PDF generation */
+@media print {
+  @page {
+    margin: 1.5cm 1.5cm;
+    size: auto;
+  }
+  
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+  }
+
+  .no-print,
+  button,
+  nav,
+  header {
+    display: none !important;
+  }
+
+  .print-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .print-break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-break-after-auto {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+
+  /* Force dark text and clean hairpins during print */
+  h1, h2, h3, h4, p, span, li {
+    color: #0F2544 !important;
+  }
+
+  .print-muted {
+    color: #4B5563 !important;
+  }
+}
